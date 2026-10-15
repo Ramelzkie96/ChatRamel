@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --color-app: #080e1f;
+  --color-panel: #0b1226;
+  --color-line: #1a2340;
+  --color-hover: #121b34;
+  --color-accent: #2563eb;
+  --color-muted: #8b95b0;
+}
+
+body {
+  margin: 0;
+  background: var(--color-app);
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* thin dark scrollbar for the chat lists */
+.thin-scroll::-webkit-scrollbar { width: 6px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: #1a2340; border-radius: 9999px; }
