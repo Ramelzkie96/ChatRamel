@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL || "https://chatramel.onrender.com";
 
 // "http://localhost:5000" (the API address without "/api")
 export const SERVER_URL = API_URL.replace(/\/api\/?$/, "");
