@@ -4,7 +4,6 @@ import { Mail, User, ArrowRight } from "lucide-react";
 import TextInput from "../ui/TextInput";
 import PasswordInput from "../ui/PasswordInput";
 import Button from "../ui/Button";
-import SocialButtons from "./SocialButtons";
 import useAuth from "../../hooks/useAuth";
 import { validateSignup } from "../../utils/validators";
 import toast from "react-hot-toast";
@@ -92,8 +91,6 @@ export default function SignupForm() {
       <Button type="submit" loading={loading} icon={ArrowRight}>
         Create Account
       </Button>
-
-      <SocialButtons />
     </form>
   );
 }

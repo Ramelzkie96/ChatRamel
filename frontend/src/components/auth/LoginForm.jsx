@@ -4,7 +4,6 @@ import { Mail, ArrowRight, Check } from "lucide-react";
 import TextInput from "../ui/TextInput";
 import PasswordInput from "../ui/PasswordInput";
 import Button from "../ui/Button";
-import SocialButtons from "./SocialButtons";
 import useAuth from "../../hooks/useAuth";
 import { validateLogin } from "../../utils/validators";
 import toast from "react-hot-toast";
@@ -93,7 +92,6 @@ const handleSubmit = async (e) => {
         Login
       </Button>
 
-      <SocialButtons />
     </form>
   );
 }
