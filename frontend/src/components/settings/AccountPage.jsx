@@ -16,8 +16,8 @@ export default function AccountPage() {
   if (!user) return null;
 
   return (
-    <main className="thin-scroll h-screen min-w-0 flex-1 overflow-y-auto bg-app p-6">
-      <div className="rounded-3xl border border-line bg-panel/60 p-6 sm:p-8">
+    <main className="thin-scroll min-h-0 min-w-0 flex-1 overflow-y-auto bg-app p-3 sm:p-6 lg:h-dvh">
+      <div className="rounded-3xl border border-line bg-panel/60 p-4 sm:p-8">
         <h2 className="text-2xl font-semibold">Account</h2>
         <p className="mt-1 text-sm text-muted">Update your profile information and account details.</p>
 

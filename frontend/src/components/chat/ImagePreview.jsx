@@ -2,7 +2,7 @@ import { X } from "lucide-react";
 
 export default function ImagePreview({ src, name, disabled, onRemove }) {
   return (
-    <div className="flex items-center gap-3 px-8 pt-4">
+    <div className="flex items-center gap-3 px-3 pt-3 sm:px-8 sm:pt-4">
       <div className="relative">
         <img src={src} alt="Selected" className="h-20 w-20 rounded-xl border border-line object-cover" />
         <button

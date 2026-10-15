@@ -3,7 +3,7 @@ import { formatBytes } from "../../utils/formatBytes";
 
 export default function FileChip({ file, disabled, onRemove }) {
   return (
-    <div className="flex items-center gap-3 px-8 pt-4">
+    <div className="flex items-center gap-3 px-3 pt-3 sm:px-8 sm:pt-4">
       <div className="relative">
         <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-line bg-hover text-blue-400">
           <FileText size={32} />

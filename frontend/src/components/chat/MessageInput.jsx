@@ -122,7 +122,7 @@ export default function MessageInput({ onSend, onSendImage, onSendFile, onTyping
   const hasAttachment = Boolean(image || doc);
 
   return (
-    <div className="border-t border-line">
+    <div className="border-t border-line pb-safe">
       {image && (
         <ImagePreview
           src={previewUrl}
@@ -133,7 +133,10 @@ export default function MessageInput({ onSend, onSendImage, onSendFile, onTyping
       )}
       {doc && <FileChip file={doc} disabled={sending} onRemove={() => setDoc(null)} />}
 
-      <form onSubmit={handleSubmit} className="flex items-center gap-3 px-8 py-4">
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center gap-2 px-3 py-3 sm:gap-3 sm:px-8 sm:py-4"
+      >
         <input
           ref={docRef}
           type="file"
@@ -146,14 +149,14 @@ export default function MessageInput({ onSend, onSendImage, onSendFile, onTyping
           aria-label="Attach file"
           disabled={sending}
           onClick={() => docRef.current?.click()}
-          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-hover transition-colors hover:text-white disabled:opacity-60 ${
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-hover transition-colors hover:text-white disabled:opacity-60 sm:h-12 sm:w-12 ${
             doc ? "text-blue-400" : "text-gray-300"
           }`}
         >
           <Plus size={22} />
         </button>
 
-        <div className="flex flex-1 items-center gap-3 rounded-xl border border-line bg-panel px-4 py-3">
+        <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-line bg-panel px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3">
           <input
             ref={textRef}
             value={text}
@@ -164,7 +167,8 @@ export default function MessageInput({ onSend, onSendImage, onSendFile, onTyping
             onPaste={handlePaste}
             maxLength={MAX_TEXT}
             placeholder={hasAttachment ? "Add a caption..." : "Type a message..."}
-            className="flex-1 bg-transparent text-[15px] text-white outline-none placeholder:text-muted"
+            // 16px on phones stops iPhones from zooming the page when you tap the box
+            className="min-w-0 flex-1 bg-transparent text-base text-white outline-none placeholder:text-muted sm:text-[15px]"
           />
 
           <EmojiButton onPick={insertEmoji} disabled={sending} />
@@ -181,7 +185,7 @@ export default function MessageInput({ onSend, onSendImage, onSendFile, onTyping
             aria-label="Attach image"
             disabled={sending}
             onClick={() => imageRef.current?.click()}
-            className={`transition-colors hover:text-white disabled:opacity-60 ${
+            className={`p-1 transition-colors hover:text-white disabled:opacity-60 ${
               image ? "text-blue-400" : "text-muted"
             }`}
           >
@@ -193,7 +197,7 @@ export default function MessageInput({ onSend, onSendImage, onSendFile, onTyping
           type="submit"
           disabled={sending}
           aria-label="Send"
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-blue-500/30 transition-colors hover:bg-blue-500 disabled:opacity-60"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-lg shadow-blue-500/30 transition-colors hover:bg-blue-500 disabled:opacity-60 sm:h-12 sm:w-12"
         >
           <Send size={20} />
         </button>

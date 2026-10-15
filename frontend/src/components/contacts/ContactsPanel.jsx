@@ -44,7 +44,7 @@ export default function ContactsPanel() {
   const totalForTab = counts[filter];
 
   return (
-    <section className="flex h-screen w-[360px] shrink-0 flex-col border-r border-line bg-panel">
+    <section className="flex min-h-0 w-full flex-1 flex-col bg-panel lg:h-dvh lg:w-[360px] lg:flex-none lg:shrink-0 lg:border-r lg:border-line">
       <ContactsHeader onAdd={() => setAdding(true)} />
       <ContactSearch value={search} onChange={setSearch} />
       <ContactFilters value={filter} onChange={setFilter} counts={counts} />

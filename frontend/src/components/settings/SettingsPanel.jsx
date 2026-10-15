@@ -7,7 +7,7 @@ const SECTIONS = [
 
 export default function SettingsPanel({ active, onSelect }) {
   return (
-    <section className="flex h-screen w-[380px] shrink-0 flex-col border-r border-line bg-panel">
+    <section className="flex min-h-0 w-full flex-1 flex-col bg-panel lg:h-dvh lg:w-[380px] lg:flex-none lg:shrink-0 lg:border-r lg:border-line">
       <div className="px-6 pb-4 pt-7">
         <h2 className="text-2xl font-semibold">Settings</h2>
         <p className="mt-1 text-sm text-muted">Manage your account and profile.</p>

@@ -1,18 +1,19 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 export default function ImageViewer({ src, onClose }) {
   useEffect(() => {
     const onKey = (e) => {
       if (e.key !== "Escape") return;
-      e.stopPropagation(); // don't also close a modal underneath
+      e.stopPropagation(); // don't also close a modal or drawer underneath
       onClose();
     };
-    window.addEventListener("keydown", onKey, true); // capture: runs before the modal's handler
+    window.addEventListener("keydown", onKey, true); // capture: runs before the others
     return () => window.removeEventListener("keydown", onKey, true);
   }, [onClose]);
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 p-4"
       onMouseDown={onClose}
@@ -31,8 +32,9 @@ export default function ImageViewer({ src, onClose }) {
         src={src}
         alt="Full size"
         onMouseDown={(e) => e.stopPropagation()}
-        className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain"
+        className="max-h-[90dvh] max-w-[95vw] rounded-lg object-contain"
       />
-    </div>
+    </div>,
+    document.body
   );
 }

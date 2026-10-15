@@ -1,23 +1,14 @@
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Smile, Loader2 } from "lucide-react";
+import useMediaQuery from "../../hooks/useMediaQuery";
+import { PICKER_THEME } from "../../utils/reactions";
 
 // loaded only the first time the button is clicked
 const EmojiPicker = lazy(() => import("emoji-picker-react"));
 
-const THEME_VARS = {
-  "--epr-bg-color": "#0b1226",
-  "--epr-category-label-bg-color": "#0b1226",
-  "--epr-picker-border-color": "#1a2340",
-  "--epr-search-border-color": "#1a2340",
-  "--epr-search-input-bg-color": "#0a1226",
-  "--epr-hover-bg-color": "#121b34",
-  "--epr-focus-bg-color": "#121b34",
-  "--epr-text-color": "#d1d5db",
-  "--epr-highlight-color": "#2563eb",
-};
-
 export default function EmojiButton({ onPick, disabled }) {
   const [open, setOpen] = useState(false);
+  const narrow = useMediaQuery("(max-width: 639px)");
   const wrapRef = useRef(null);
 
   // close on outside click or Esc
@@ -47,7 +38,7 @@ export default function EmojiButton({ onPick, disabled }) {
         // keeps the caret in the text box when you click the button
         onMouseDown={(e) => e.preventDefault()}
         onClick={() => setOpen((v) => !v)}
-        className={`transition-colors hover:text-white disabled:opacity-60 ${
+        className={`p-1 transition-colors hover:text-white disabled:opacity-60 ${
           open ? "text-blue-400" : "text-muted"
         }`}
       >
@@ -55,10 +46,10 @@ export default function EmojiButton({ onPick, disabled }) {
       </button>
 
       {open && (
-        <div className="absolute bottom-full right-0 z-40 mb-4 overflow-hidden rounded-2xl shadow-2xl shadow-black/50">
+        <div className="fixed inset-x-2 bottom-24 z-40 overflow-hidden rounded-2xl shadow-2xl shadow-black/50 sm:absolute sm:inset-x-auto sm:bottom-full sm:right-0 sm:mb-4">
           <Suspense
             fallback={
-              <div className="flex h-[380px] w-[320px] items-center justify-center rounded-2xl border border-line bg-panel text-muted">
+              <div className="flex h-[340px] w-full items-center justify-center rounded-2xl border border-line bg-panel text-muted sm:h-[380px] sm:w-[320px]">
                 <Loader2 className="animate-spin" size={26} />
               </div>
             }
@@ -66,13 +57,13 @@ export default function EmojiButton({ onPick, disabled }) {
             <EmojiPicker
               theme="dark"
               emojiStyle="native"
-              width={320}
-              height={380}
+              width={narrow ? "100%" : 320}
+              height={narrow ? 340 : 380}
               lazyLoadEmojis
               skinTonesDisabled
               searchPlaceHolder="Search emoji"
               previewConfig={{ showPreview: false }}
-              style={THEME_VARS}
+              style={PICKER_THEME}
               // the picker stays open, so you can add several emoji in a row
               onEmojiClick={(data) => onPick(data.emoji)}
             />

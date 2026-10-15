@@ -19,3 +19,8 @@ body {
 /* thin dark scrollbar for the chat lists */
 .thin-scroll::-webkit-scrollbar { width: 6px; }
 .thin-scroll::-webkit-scrollbar-thumb { background: #1a2340; border-radius: 9999px; }
+
+/* bottom padding for the iPhone home indicator */
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

@@ -19,7 +19,7 @@ export default function MessageList({ chat, messages, loading, typingNames = [],
   };
 
   return (
-    <div ref={containerRef} className="thin-scroll flex-1 overflow-y-auto px-8 py-4">
+    <div ref={containerRef} className="thin-scroll min-h-0 flex-1 overflow-y-auto px-3 py-4 sm:px-8">
       {loading && (
         <div className="flex justify-center py-10 text-muted">
           <Loader2 className="animate-spin" size={26} />

@@ -15,7 +15,7 @@ export default function GroupsPanel() {
   const { search, setSearch, filter, setFilter, filtered, total } = useGroupFilter(groups);
 
   return (
-    <section className="flex h-screen w-[360px] shrink-0 flex-col border-r border-line bg-panel">
+    <section className="flex min-h-0 w-full flex-1 flex-col bg-panel lg:h-dvh lg:w-[360px] lg:flex-none lg:shrink-0 lg:border-r lg:border-line">
       <GroupsHeader onNew={() => setCreating(true)} />
       <GroupSearch value={search} onChange={setSearch} />
       <GroupFilters value={filter} onChange={setFilter} total={total} />

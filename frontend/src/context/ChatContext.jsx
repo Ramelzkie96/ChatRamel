@@ -35,6 +35,13 @@ export function ChatProvider({ children }) {
   const [loadingChats, setLoadingChats] = useState(true);
   const [activeChatId, setActiveChatId] = useState(null);
 
+    // counts every "open this chat" request, even for the chat that's already open
+  const [selectTick, setSelectTick] = useState(0);
+  const selectChat = useCallback((id) => {
+    setActiveChatId(id);
+    setSelectTick((n) => n + 1);
+  }, []);
+
   // set when a chat is cleared; message and media lists watch it and empty themselves
   const [clearSignal, setClearSignal] = useState(null);
 
@@ -316,7 +323,8 @@ export function ChatProvider({ children }) {
     activeChat,
     activeItem,
     clearSignal,
-    selectChat: setActiveChatId,
+    selectChat,
+    selectTick,
     upsertChat,
     patchChat,
     removeChat,

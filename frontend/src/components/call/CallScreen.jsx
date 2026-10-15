@@ -22,7 +22,7 @@ export default function CallScreen() {
 
   return (
     <div className="fixed inset-0 z-[70] flex flex-col bg-[#050914] text-white">
-      <header className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-black/60 to-transparent p-5">
+      <header className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-black/60 to-transparent p-4 pt-[max(1rem,env(safe-area-inset-top))]">
         <h2 className="text-lg font-semibold">{call.peer.name}</h2>
         <p className={`text-sm ${reconnecting ? "text-amber-300" : "text-gray-300"}`}>
           {statusText ?? <CallTimer since={call.connectedAt} />}

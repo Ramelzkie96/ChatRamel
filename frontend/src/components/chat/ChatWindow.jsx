@@ -8,7 +8,7 @@ import useMessages from "../../hooks/useMessages";
 import useChatActions from "../../hooks/useChatActions";
 import { useTypingEmitter } from "../../hooks/useTyping";
 
-export default function ChatWindow({ onToggleInfo }) {
+export default function ChatWindow({ onToggleInfo, onOpenMenu }) {
   const { activeItem } = useChat();
   const { messages, loading, send, sendImage, sendFile, react } = useMessages(activeItem?.id);
   const { notifyTyping, stopTyping } = useTypingEmitter(activeItem?.id);
@@ -41,7 +41,7 @@ export default function ChatWindow({ onToggleInfo }) {
 
   return (
     <main className="flex min-w-0 flex-1 flex-col bg-app">
-      <ChatHeader chat={activeItem} typingNames={typingNames} onToggleInfo={onToggleInfo} />
+      <ChatHeader chat={activeItem} typingNames={typingNames} onToggleInfo={onToggleInfo} onOpenMenu={onOpenMenu}/>
       <MessageList
         chat={activeItem}
         messages={messages}

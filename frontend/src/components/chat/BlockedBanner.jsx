@@ -12,10 +12,10 @@ export default function BlockedBanner({ name, onUnblock }) {
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 border-t border-line px-8 py-5">
+    <div className="flex flex-col gap-3 border-t border-line px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-5">
       <p className="flex min-w-0 items-center gap-3 text-[15px] text-gray-300">
         <Ban size={20} className="shrink-0 text-muted" />
-        <span className="truncate">
+        <span className="sm:truncate">
           You blocked {name}. Unblock to send messages.
         </span>
       </p>

@@ -24,7 +24,7 @@ export default function FileCard({ file, chatId, messageId }) {
       type="button"
       onClick={download}
       aria-label={`Download ${file.name}`}
-      className="flex w-64 max-w-full items-center gap-3 rounded-xl bg-black/20 px-3 py-2.5 text-left transition-colors hover:bg-black/30"
+      className="flex w-full min-w-0 max-w-[16rem] items-center gap-3 rounded-xl bg-black/20 px-3 py-2.5 text-left transition-colors hover:bg-black/30"
     >
       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15">
         <FileText size={22} />

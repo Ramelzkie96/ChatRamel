@@ -12,7 +12,7 @@ import usePresence from "../../hooks/usePresence";
 import { formatLastSeen } from "../../utils/chatHelpers";
 import { assetUrl } from "../../utils/api";
 
-export default function InfoPanel() {
+export default function InfoPanel({ embedded = false }) {
   const { user } = useAuth();
   const { activeChat, activeItem } = useChat();
   const { onlineIds, lastSeen } = usePresence();
@@ -50,7 +50,13 @@ export default function InfoPanel() {
       : "Offline";
 
   return (
-    <aside className="thin-scroll hidden h-screen w-[360px] shrink-0 overflow-y-auto border-l border-line bg-panel lg:block">
+    <aside
+      className={
+        embedded
+          ? "thin-scroll h-full w-full overflow-y-auto bg-panel"
+          : "thin-scroll hidden h-dvh w-[360px] shrink-0 overflow-y-auto border-l border-line bg-panel lg:block"
+      }
+    >
       {activeChat.isGroup ? (
         <GroupInfoPanel key={activeItem.id} chat={activeItem} profile={groupProfile} />
       ) : (

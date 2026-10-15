@@ -42,10 +42,10 @@ export default function MessageBubble({ message, chat, onMediaLoad, onReact }) {
   const react = onReact ? (emoji) => onReact(message._id, emoji) : undefined;
 
   return (
-    <div className={`flex items-start gap-3 ${isMine ? "justify-end" : "justify-start"}`}>
+    <div className={`flex items-start gap-2 sm:gap-3 ${isMine ? "justify-end" : "justify-start"}`}>
       {!isMine && <Avatar name={sender.name} src={sender.avatar} size={40} />}
 
-      <div className={`flex max-w-[65%] flex-col ${isMine ? "items-end" : "items-start"}`}>
+        <div className={`flex min-w-0 max-w-[85%] flex-col sm:max-w-[65%] ${isMine ? "items-end" : "items-start"}`}>
         {chat.isGroup && !isMine && (
           <span className="mb-1 text-sm font-medium text-blue-400">{sender.name}</span>
         )}

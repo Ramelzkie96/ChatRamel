@@ -26,7 +26,7 @@ export default function CallControls() {
   const { call, micOn, camOn, canToggleCamera, toggleMic, toggleCam, hangUp } = useCall();
 
   return (
-    <div className="flex items-center justify-center gap-5 bg-gradient-to-t from-black/70 to-transparent px-4 pb-8 pt-6">
+    <div className="flex items-center justify-center gap-5 bg-gradient-to-t from-black/70 to-transparent px-4 pb-[max(2rem,env(safe-area-inset-bottom))] pt-6">
       <RoundButton
         onClick={toggleMic}
         active={micOn}
