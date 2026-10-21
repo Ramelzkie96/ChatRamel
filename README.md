@@ -5,14 +5,10 @@ A real-time chat app built with the MERN stack. Users can message each other dir
 > **Live demo:** _add your link here_
 
 ## Screenshots
-
-_Add your screenshots here, for example:_
-
-```md
 ![Chats](./screenshots/chats.png)
 ![Groups](./screenshots/groups.png)
 ![Calls](./screenshots/call.png)
-```
+
 
 ## Features
 
